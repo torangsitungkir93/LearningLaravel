@@ -35,14 +35,14 @@ Route::get('/about', function () {
 });
 
 
-Route::get('/blog', function () {
+// Route::get('/blog', function () {
 
-    return view('posts',[
-        "title" => "Posts",
-        // "posts" => Post::all(),
-        'posts' => Post::latest()->get()
-    ]);
-});
+//     return view('posts',[
+//         "title" => "Posts",
+//         // "posts" => Post::all(),
+//         'posts' => Post::latest()->get()
+//     ]);
+// });
 
 Route::get('/posts',[PostController::class,'index']);
 
@@ -58,16 +58,15 @@ Route::get('categories',function(){
 
 
 Route::get('categories/{category:slug}',function(Category $category){
-    return view('category',[
-        'title' => $category->name,
+    return view('posts',[
+        'title' => "Post by Category : $category->name",
         'posts' => $category->posts,
-        'category' => $category->name,
     ]);
 });
 
 Route::get('/authors/{author:username}',function(User $author){
     return view('posts',[
-        'title' => 'User Posts',
+        'title' => "Post by Author : $author->name",
         'posts' => $author->posts,
     ]);
 });
