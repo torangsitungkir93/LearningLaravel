@@ -13,6 +13,7 @@ class Post extends Model
     // protected $fillable = ['title','excerpt','body'];
     // sama saja seperti diatas hanya saja yang tidak bisa diisi adalah id
     protected $guarded = ['id'];
+    protected $with = ['category','author'];
 
     public function category(){
         return $this->belongsTo(Category::class);
