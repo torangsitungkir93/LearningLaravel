@@ -1,11 +1,12 @@
 <?php
 
-use App\Http\Controllers\PostController;
 use App\Models\Post;
-use Illuminate\Support\Facades\Route;
 
 use App\Models\Category;
-use App\Models\User;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
 
 
 /*
@@ -68,3 +69,7 @@ Route::get('categories/{category:slug}',function(Category $category){
     ]);
 });
 
+
+Route::get('/login',[LoginController::class,'index']);
+
+Route::get('/register',[RegisterController::class,'index']);
