@@ -4,14 +4,15 @@
 <div class="row justify-content-center">
     <div class="col-lg-5">
         <main class="form-registration  w-100 m-auto">
-            <form>
+            <form action="/register" method="post">
+                @csrf
                 <div class="row justify-content-center">
                     <img class="col-md-7 text-center" src="img/img2.jpg" alt="">
                     <h3 class="h3 mb-2 fw-normal text-center">Registration Form</h3>
                 </div>
 
                 <div class="form-floating">
-                    <input type="text" name="name" class="form-control rounded-top" id="name" placeholder="Name">
+                    <input type="text" name="name" class="form-control rounded-top @error('name') is-invalid @enderror" id="name" placeholder="Name">
                     <label for="name">Name</label>
                 </div>
                 <div class="form-floating">
